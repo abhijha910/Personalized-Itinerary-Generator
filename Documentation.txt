@@ -1,0 +1,65 @@
+Technical Documentation
+
+AI Approach
+Model Used
+The AI model in this project combines Natural Language Processing (NLP) techniques and recommendation systems. We utilize a Collaborative Filtering algorithm that predicts user preferences based on past interactions, along with a Content-Based Filtering approach that considers the attributes of various destinations and user inputs.
+
+Training Data
+The model is trained on a dataset that includes:
+
+User Preferences: Historical data on travel destinations chosen by users, along with their feedback and ratings.
+Destination Features: Information such as popular attractions, local climate, cultural experiences, and user-generated reviews.
+Feature Engineering
+Key features derived from the data include:
+
+User Preferences: Encoded preferences based on user-selected interests (e.g., adventure, relaxation).
+Destination Attributes: Scoring for activities, climate conditions, and distances from major cities to create a comprehensive profile for each destination.
+Model Training and Evaluation
+The model is trained using libraries such as Scikit-learn, evaluated with metrics like Mean Squared Error (MSE) for regression tasks and accuracy for classification tasks. Cross-validation techniques are employed to ensure the model's robustness and generalizability.
+
+Backend API Design
+Framework
+The backend API is built using Flask, a lightweight web framework that enables the creation of RESTful services.
+
+API Endpoints
+POST /generate-itinerary
+
+Description: Generates a travel itinerary based on user preferences.
+Request Body: Contains user ID and preferences (interests, duration, budget).
+Response: Returns the generated itinerary and total cost.
+GET /destinations
+
+Description: Returns a list of available destinations.
+Response: Provides a list of destinations along with their attributes, such as popular activities and average cost.
+Authentication
+JWT (JSON Web Tokens) is used for secure authentication, ensuring that only authorized requests can access the itinerary generation endpoint.
+
+AWS Components for Scalability
+Components Structured
+AWS Lambda
+
+Runs the backend application in a serverless architecture, automatically scaling to handle varying loads.
+API Gateway
+
+Acts as an entry point for the API, routing requests to the appropriate AWS Lambda functions, managing traffic, and providing throttling and security features.
+Amazon S3
+
+Utilized for storing static assets, such as user-uploaded images or datasets, providing scalable and durable storage.
+DynamoDB
+
+A NoSQL database service used to store user profiles, itineraries, and destination attributes, allowing for fast retrieval and scalability.
+Amazon CloudWatch
+
+Integrated for monitoring application performance, logging API requests, and generating alerts based on defined thresholds.
+Scalability Considerations
+The serverless architecture allows for automatic scaling as demand increases. The combination of API Gateway and AWS Lambda can handle thousands of requests per second without manual intervention, ensuring high availability.
+
+Assumptions and Constraints
+Assumptions
+Users have internet access and are familiar with basic API interaction methods (e.g., using Postman).
+Users provide accurate and relevant preferences when generating itineraries.
+The dataset used for training the model is representative of diverse travel preferences and destinations.
+Constraints
+Limited access to real-time data sources for destination attributes may affect the accuracy of the recommendations.
+The performance of the AI model may vary based on the diversity and quality of the input data.
+Budget constraints may limit the use of advanced data sources or cloud services beyond a certain threshold.
