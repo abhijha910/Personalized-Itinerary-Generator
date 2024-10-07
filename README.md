@@ -47,13 +47,7 @@ Make sure you have the following installed:
 - **Python 3.x** with `pip`
 - **Git** (for cloning the project)
 
-### Clone the Repository
-
-```bash
-git clone https://github.com/abhijha910/personalized-travel-itinerary.git
-cd personalized-travel-itinerary
-
-
+- 
 ### Deploying on Google Cloud Platform (GCP)
 1. Create a **VM Instance** with Ubuntu as the OS.
 2. SSH into the instance and install Node.js and Python.
@@ -61,4 +55,12 @@ cd personalized-travel-itinerary
 4. Run both the Flask and Node.js servers.
 5. Set up **Firewall Rules** to allow traffic on ports 3000 and 5000.
 6. Access the application using the public IP of the instance.
+
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/abhijha910/personalized-travel-itinerary.git
+cd personalized-travel-itinerary
+
 
