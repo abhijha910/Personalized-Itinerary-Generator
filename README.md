@@ -47,14 +47,75 @@ Make sure you have the following installed:
 - **Python 3.x** with `pip`
 - **Git** (for cloning the project)
 
-- 
-### Deploying on Google Cloud Platform (GCP)
-1. Create a **VM Instance** with Ubuntu as the OS.
-2. SSH into the instance and install Node.js and Python.
-3. Clone the project from GitHub.
-4. Run both the Flask and Node.js servers.
-5. Set up **Firewall Rules** to allow traffic on ports 3000 and 5000.
-6. Access the application using the public IP of the instance.
+
+## Deployment
+
+### Deploying on AWS
+
+1. **Create an EC2 Instance**:
+   - Log in to your [AWS Management Console](https://aws.amazon.com/console/).
+   - Navigate to the **EC2 Dashboard**.
+   - Click on **Launch Instance**.
+   - Choose an **Amazon Machine Image (AMI)**. Select **Ubuntu** (preferably the latest LTS version).
+   - Choose an **Instance Type** (e.g., `t2.micro` for the free tier).
+   - Click on **Next: Configure Instance Details** and keep the default settings unless you have specific requirements.
+   - In the **Configure Security Group** step:
+     - Create a new security group or select an existing one.
+     - Add rules to allow HTTP (port 80), HTTPS (port 443), and custom TCP rules for Node.js and Flask:
+       - **Custom TCP** for Node.js: Port `3000`
+       - **Custom TCP** for Flask: Port `5000`
+   - Click on **Review and Launch**, then **Launch** the instance.
+   - When prompted, create a new key pair or select an existing one, then download the `.pem` file for SSH access.
+
+2. **SSH into the Instance**:
+   - Open a terminal (or Command Prompt on Windows) and navigate to the directory where your `.pem` file is located.
+   - Run the following command to SSH into your instance:
+     ```bash
+     ssh -i "your-key-file.pem" ubuntu@<YOUR_PUBLIC_IP>
+     ```
+   - Replace `your-key-file.pem` with the name of your key file and `<YOUR_PUBLIC_IP>` with the public IP address of your EC2 instance.
+
+3. **Install Node.js and Python**:
+   - Once logged in, update the package lists and install Node.js and npm:
+     ```bash
+     sudo apt update
+     sudo apt install nodejs npm
+     ```
+   - Install Python and Flask:
+     ```bash
+     sudo apt install python3 python3-pip
+     pip3 install Flask Flask-CORS
+     ```
+
+4. **Clone the Project from GitHub**:
+   - Make sure Git is installed. If it's not, install it with:
+     ```bash
+     sudo apt install git
+     ```
+   - Clone your project repository:
+     ```bash
+     git clone https://github.com/abhijha910/personalized-travel-itinerary.git
+     cd personalized-travel-itinerary
+     ```
+
+5. **Run Both the Flask and Node.js Servers**:
+   - Start the Flask service:
+     ```bash
+     python3 recommendation.py
+     ```
+   - Open a new terminal or SSH session to the same instance.
+   - Navigate to your project directory and start the Node.js server:
+     ```bash
+     node server.js
+     ```
+
+6. **Access the Application Using the Public IP of the Instance**:
+   - Open a web browser or Postman.
+   - Access the Node.js API using the public IP of your instance:
+     ```plaintext
+     http://<YOUR_PUBLIC_IP>:3000/generate-itinerary
+     ```
+   - Replace `<YOUR_PUBLIC_IP>` with the actual public IP of your EC2 instance.
 
 
 ### Clone the Repository
@@ -62,5 +123,6 @@ Make sure you have the following installed:
 ```bash
 git clone https://github.com/abhijha910/personalized-travel-itinerary.git
 cd personalized-travel-itinerary
+
 
 
