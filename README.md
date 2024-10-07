@@ -18,6 +18,10 @@ This project generates personalized travel itineraries based on user data such a
 
 The **Personalized Travel Itinerary Generator** aims to create an AI-driven backend system that recommends travel destinations and activities based on user preferences, budget, reviews, and companion vibes. This system is designed to handle real-time input from users and provide dynamic travel itineraries.
 
+### Objective
+
+We are building a travel companion app that provides personalized travel itineraries based on a user's preferences, behaviors, and travel history. The goal is to assess your ability to design an intelligent system that generates personalized itineraries using user data (expenses, vibe, reviews, Instagram photos, travel mates, etc.) and evaluate your proficiency in AI, backend engineering (Node.js), and cloud architecture (AWS).
+
 ## Features
 
 - Generate travel itineraries based on user preferences and budget.
@@ -46,7 +50,6 @@ Make sure you have the following installed:
 - **npm** (comes with Node.js)
 - **Python 3.x** with `pip`
 - **Git** (for cloning the project)
-
 
 ## Deployment
 
@@ -117,6 +120,28 @@ Make sure you have the following installed:
      ```
    - Replace `<YOUR_PUBLIC_IP>` with the actual public IP of your EC2 instance.
 
+### 2. Implement Additional Features
+
+Ensure that your project now includes:
+
+- **User Data Preprocessing**: Add functions to clean and preprocess your user data.
+- **User Segmentation Logic**: Implement clustering algorithms to segment users.
+- **Recommendation Engine**: Code to generate recommendations based on user data.
+- **Itinerary Generation Logic**: Complete logic that creates a full itinerary based on the selected destination.
+
+### 3. Testing Your Application
+
+Once you've updated the project:
+
+1. **Run Tests**: Use Postman to ensure that your API endpoints are working as expected.
+2. **Check Integration**: Make sure that the Flask service is returning the expected data when called by the Node.js backend.
+3. **Review Code**: Ensure your code is clean, well-commented, and follows best practices.
+
+### 4. Final Documentation
+
+Finally, ensure that your documentation is clear, covering how the system works, how to set it up, and any assumptions or constraints you've encountered during development.
+
+If you need any further specific code snippets, explanations, or help with any part of this process, feel free to ask!
 
 ### Clone the Repository
 
